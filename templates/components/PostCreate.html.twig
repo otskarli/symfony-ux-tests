@@ -1,0 +1,34 @@
+<div {{ attributes }}>
+    {{ form_start(form, {
+            attr: {
+                    'data-action': 'live#action',
+                    'data-action-name': 'prevent|save'
+            }
+    }) }}
+        {{ form_row(form.title) }}
+
+        {{ dump(form_errors(form)) }}
+
+        <h3>Components:</h3>
+        {% for key, componentForm in form.components %}
+                <button
+                        data-action="live#action"
+                        data-action-name="removeComponent(index={{ key }})"
+                        type="button"
+                >X</button>
+
+                {{ form_widget(componentForm) }}
+        {% endfor %}
+
+        {# avoid an extra label for this field #}
+        {% do form.components.setRendered %}
+
+        <button
+                data-action="live#action"
+                data-action-name="addComponent"
+                type="button"
+        >+ Add Text Component</button>
+
+        <button type="submit" >Save</button>
+    {{ form_end(form) }}
+</div>
