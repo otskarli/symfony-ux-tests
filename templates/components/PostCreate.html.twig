@@ -7,11 +7,10 @@
     }) }}
         {{ form_row(form.title) }}
 
-        {{ dump(form_errors(form)) }}
-
         <h3>Components:</h3>
         {% for key, componentForm in form.components %}
                 <button
+                        class="btn btn-danger"
                         data-action="live#action"
                         data-action-name="removeComponent(index={{ key }})"
                         type="button"
@@ -24,11 +23,12 @@
         {% do form.components.setRendered %}
 
         <button
+                class="btn btn-primary"
                 data-action="live#action"
                 data-action-name="addComponent"
                 type="button"
         >+ Add Text Component</button>
 
-        <button type="submit" >Save</button>
+        <button class="btn btn-primary" type="submit" >Save</button>
     {{ form_end(form) }}
 </div>

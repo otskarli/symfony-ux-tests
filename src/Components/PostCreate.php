@@ -7,6 +7,7 @@ use App\Form\PostType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
@@ -49,7 +50,6 @@ class PostCreate extends AbstractController
         // Submit the form! If validation fails, an exception is thrown
         // and the component is automatically re-rendered with the errors
         $this->submitForm();
-
 
         /** @var Post $post */
         $post = $this->getForm()->getData();

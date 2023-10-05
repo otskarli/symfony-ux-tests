@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping\InheritanceType;
 #[InheritanceType("SINGLE_TABLE")]
 #[DiscriminatorColumn(name: "discriminator", type: "string")]
 #[DiscriminatorMap([
+    "default" => PostComponent::class,
     "text" => PostTextComponent::class,
     "image" => PostImageComponent::class
 ])]
